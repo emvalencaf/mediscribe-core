@@ -31,5 +31,11 @@ def generate_medical_record(file: UploadFile = File(...)):
                   partition="medical_record")
     
     return {
-        "result": res,
+        "result": {
+            "transcription" : transcription,
+            "medical_record" : res[0]
+            },
+        "metadata": {
+            "llm_model_details": res[1], 
+        },
     }
