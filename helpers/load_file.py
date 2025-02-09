@@ -1,5 +1,6 @@
 from pathlib import Path
 import shutil
+from datetime import datetime
 
 from fastapi import UploadFile
 
@@ -10,9 +11,9 @@ def load_file(file: UploadFile) -> Path:
     :param file: The file to be uploaded, provided as an UploadFile object.
     :return: The location where the file has been saved.
     """
-    root_folder = Path(__file__).parent
+    root_folder = Path(__file__).parent.parent
     
-    upload_folder = root_folder / "uploaded_files"
+    upload_folder = root_folder / "data_output" / "uploaded_files"
     
     upload_folder.mkdir(parents=True, exist_ok=True)
     
@@ -36,7 +37,7 @@ def load_txt_file(content: str, filename: str,
     """
     root_folder = Path(__file__).parent.parent
     
-    upload_folder = root_folder / partition
+    upload_folder = root_folder / "data_output" / partition
     
     upload_folder.mkdir(parents=True, exist_ok=True)
     

@@ -1,11 +1,10 @@
 from pydantic_settings import BaseSettings
 from dotenv import load_dotenv
 from os import getenv
+from typing import Optional
 
 load_dotenv(dotenv_path='./.env')
 
-from pydantic import BaseSettings
-from typing import Optional
 
 class GlobalConfig(BaseSettings):
     """
